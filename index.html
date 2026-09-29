@@ -5,45 +5,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f4f5f1" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#101412" media="(prefers-color-scheme: dark)">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
-<title>Калькулятор зарплаты</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23116149'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='white' font-family='Arial' font-weight='700'%3E%E2%82%B8%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#f5f6f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1016" media="(prefers-color-scheme: dark)">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; font-src data:; img-src data:; base-uri 'none'; form-action 'none'">
+<title>Калькулятор зарплаты — edubuh</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231926cd'/%3E%3Ctext x='16' y='22.5' font-size='17' text-anchor='middle' fill='white' font-family='Arial' font-weight='800'%3Ee%3C/text%3E%3C/svg%3E">
 <style>
+@font-face{font-family:"EdubuhLogo";font-weight:600;font-style:normal;font-display:block;
+  src:url(data:font/woff2;base64,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) format("woff2")}
 :root{
-  --bg:#f4f5f1;--card:#ffffff;--ink:#16201b;--muted:#5e6a63;--line:#e2e5df;
-  --accent:#116149;--accent-soft:#e3f1ea;--warn:#8a5a00;--warn-soft:#fff4dc;--chip:#eef0ec;
+  --bg:#f5f6f9;--card:#ffffff;--ink:#141827;--muted:#626879;--line:#e4e6ee;--chip:#eff1f6;
+  --accent:#1926cd;--accent-ink:#1926cd;--accent-soft:#eef0fd;--warn:#7a5a12;--warn-soft:#fbf5e6;
+  color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#101412;--card:#181e1b;--ink:#e8ede9;--muted:#9aa7a0;--line:#2a332e;
-    --accent:#4fc39a;--accent-soft:#17352a;--warn:#f0c060;--warn-soft:#3a2e12;--chip:#222a26;
+    --bg:#0e1016;--card:#161923;--ink:#e9ebf3;--muted:#9ba1b5;--line:#272b39;--chip:#1e2230;
+    --accent:#1926cd;--accent-ink:#8c95ff;--accent-soft:#1a1e42;--warn:#e7c77a;--warn-soft:#2e2718;
+    color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#101412;--card:#181e1b;--ink:#e8ede9;--muted:#9aa7a0;--line:#2a332e;
-  --accent:#4fc39a;--accent-soft:#17352a;--warn:#f0c060;--warn-soft:#3a2e12;--chip:#222a26;
+  --bg:#0e1016;--card:#161923;--ink:#e9ebf3;--muted:#9ba1b5;--line:#272b39;--chip:#1e2230;
+  --accent:#1926cd;--accent-ink:#8c95ff;--accent-soft:#1a1e42;--warn:#e7c77a;--warn-soft:#2e2718;
+  color-scheme:dark;
 }
-:root{color-scheme:light}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark}}
-:root[data-theme="dark"]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{margin:0;overflow-wrap:anywhere;background:var(--bg);color:var(--ink);
+body{margin:0;background:var(--bg);color:var(--ink);overflow-wrap:anywhere;
   font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1060px;margin:0 auto;padding:24px 16px 48px}
-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:20px}
-h1{font-size:26px;line-height:1.2;margin:0 0 4px;letter-spacing:-.01em}
-.sub{color:var(--muted);margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
+[hidden]{display:none!important}
+
+/* бренд */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:18px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
+.logo{font-family:"EdubuhLogo",Montserrat,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:26px;letter-spacing:.01em;color:#1926cd;line-height:1;white-space:nowrap;overflow-wrap:normal;flex-shrink:0}
+.ct{width:100%;border-collapse:collapse}
+.ct th{font-size:13px;text-align:right;padding:8px 0 8px 12px;border-bottom:1.5px solid var(--line);vertical-align:bottom;font-weight:700}
+.ct th:first-child{text-align:left;padding-left:0}
+.ct th.best{color:var(--accent-ink)}
+.ct th .tag{display:inline-block;margin-top:4px;font-size:11px;font-weight:700;color:#fff;background:var(--accent);border-radius:999px;padding:2px 8px}
+.ct td.n .hint{text-align:right;white-space:normal;max-width:190px;margin-left:auto}
+.ct td.n.best{color:var(--accent-ink)}
+.cmp-wide{display:block}.cmp.cmp-narrow{display:none}
+@media (max-width:1000px) and (min-width:821px){.cmp-wide{display:none}.cmp.cmp-narrow{display:grid}}
+@media (max-width:560px){.cmp-wide{display:none}.cmp.cmp-narrow{display:grid}}
+.brand .sep{width:1px;align-self:stretch;background:var(--line)}
+.tagline{font-size:13px;line-height:1.3;color:var(--muted);max-width:190px}
 .lang{display:flex;background:var(--chip);border-radius:10px;padding:3px;flex-shrink:0}
-.lang button,.seg button{border:0;background:transparent;color:var(--muted);font:inherit;font-weight:600;border-radius:8px;cursor:pointer}
-.lang button{padding:6px 12px}
-.lang button.on,.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.lang button,.seg button,.tabs button{border:0;background:transparent;color:var(--muted);font:inherit;font-weight:600;border-radius:8px;cursor:pointer}
+.lang button{padding:6px 12px;font-size:14px}
+.lang button.on,.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(15,20,40,.12)}
+
+h1{font-size:26px;line-height:1.2;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 18px}
+.tabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}
+.tabs button{flex:0 1 auto;padding:9px 16px;border:1.5px solid var(--line);background:var(--card);border-radius:999px}
+.tabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+
 .grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:20px;align-items:start}
 @media (max-width:820px){.grid{grid-template-columns:minmax(0,1fr)}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
-.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--chip);border-radius:12px;padding:4px;margin-bottom:18px}
+.seg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--chip);border-radius:12px;padding:4px;margin-bottom:18px}
 .seg button{padding:9px 6px}
 label.f{display:block;font-weight:600;font-size:13px;color:var(--muted);margin:0 0 6px}
 .field{margin-bottom:14px}
@@ -53,7 +77,7 @@ label.f{display:block;font-weight:600;font-size:13px;color:var(--muted);margin:0
 .money span{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:20px;font-weight:600}
 input.sm{width:100%;font:inherit;font-size:16px;font-weight:600;padding:9px 12px;border:1.5px solid var(--line);border-radius:10px;
   background:var(--card);color:var(--ink);font-variant-numeric:tabular-nums}
-input:focus,select:focus{outline:none;border-color:var(--accent)}
+input:focus,select:focus{outline:none;border-color:var(--accent-ink)}
 select{width:100%;font:inherit;font-size:16px;text-overflow:ellipsis;padding:10px 34px 10px 12px;border:1.5px solid var(--line);border-radius:10px;
   background:var(--card);color:var(--ink);appearance:none;
   background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
@@ -62,64 +86,153 @@ select{width:100%;font:inherit;font-size:16px;text-overflow:ellipsis;padding:10p
 .checks{display:flex;flex-direction:column;gap:2px}
 .chk{display:flex;gap:10px;align-items:flex-start;padding:7px 0;cursor:pointer}
 .chk input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent);flex-shrink:0}
+.sub-box{background:var(--chip);border-radius:12px;padding:12px 12px 2px;margin:4px 0 10px}
+.sub-box .dnote{margin-bottom:10px}
 details{border-top:1px solid var(--line);padding:4px 0}
-details:last-of-type{border-bottom:1px solid var(--line)}
-.checks+details{margin-top:10px}
-summary{cursor:pointer;font-weight:700;padding:10px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:8px}
+details.last{border-bottom:1px solid var(--line)}
+.checks+details,.sub-box+details{margin-top:10px}
+summary{cursor:pointer;font-weight:700;padding:10px 0;list-style:none;display:flex;align-items:center;gap:8px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--muted);font-size:20px;font-weight:400;line-height:1}
+summary::after{content:"+";color:var(--muted);font-size:20px;font-weight:400;line-height:1;margin-left:auto}
 details[open] summary::after{content:"−"}
-summary .badge{margin-left:auto;font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:2px 8px}
+summary .badge{font-size:12px;font-weight:600;color:var(--accent-ink);background:var(--accent-soft);border-radius:999px;padding:2px 8px}
 .dnote{font-size:13px;color:var(--muted);margin:0 0 12px}
+.hsec{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:6px 0 10px}
 .warn{background:var(--warn-soft);color:var(--warn);border-radius:10px;padding:10px 12px;font-size:13px;margin-top:12px}
 .warn p{margin:0}.warn p+p{margin-top:6px}
-.hero{background:var(--accent-soft);border-radius:14px;padding:16px 18px;margin-bottom:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.hero{background:var(--accent-soft);border-radius:14px;padding:16px 18px;margin-bottom:18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
 .hero .k{font-size:13px;color:var(--muted);font-weight:600}
 .hero .v{font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.2}
-.hero .v.acc{color:var(--accent)}
+.hero .v.acc{color:var(--accent-ink)}
+.hero .note{grid-column:1/-1;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
 h2{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:18px 0 4px}
+h2.big{color:var(--ink);margin-top:26px;font-size:14px}
 table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top}
 td.n{text-align:right;white-space:nowrap;font-weight:600;padding-left:12px}
 td .hint{display:block;font-size:12px;color:var(--muted);font-weight:400}
 tr.tot td{border-bottom:0;font-weight:800;padding-top:12px}
 .ex{color:var(--muted);font-weight:400;font-size:13px}
+.cmp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.cmp .box{border:1px solid var(--line);border-radius:14px;padding:4px 14px 8px}
+.cmp .box.best{border-color:var(--accent-ink)}
+.cmp h3{font-size:15px;margin:10px 0 2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cmp h3 .tag{font-size:11px;font-weight:700;color:#fff;background:var(--accent);border-radius:999px;padding:2px 8px}
+@media (max-width:1000px) and (min-width:821px){.cmp{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.cmp{grid-template-columns:minmax(0,1fr)}}
+.rules{margin-top:18px;border-top:1px solid var(--line);padding-top:6px}
+.rules h4{font-size:14px;margin:12px 0 4px}
+.rules ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
+.rules li{margin:3px 0}
 .actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
 .btn{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:600;padding:9px 14px;border-radius:10px;cursor:pointer}
-.btn:hover{border-color:var(--accent)}
-footer{margin-top:22px;color:var(--muted);font-size:13px}
-footer p{margin:0 0 8px}
-.lock{display:flex;gap:8px;color:var(--accent);font-weight:600}
-.soon{display:flex;gap:8px}
+.btn:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
+footer{margin-top:24px;color:var(--muted);font-size:13px}
+footer p{margin:0 0 8px;display:flex;gap:8px}
+footer .lock{color:var(--accent-ink);font-weight:600}
+footer .fbrand{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);align-items:center}
+footer .fbrand .logo{font-size:15px}
+@media (max-width:560px){
+  .topbar{align-items:flex-start}
+  .brand{gap:10px}.logo{font-size:21px}.tagline{font-size:12px;max-width:150px}
+}
 @media (max-width:480px){
-  h1{font-size:22px}.hero{grid-template-columns:1fr}.hero .v{font-size:24px}
-  .card{padding:16px 14px}
-  .money input{font-size:22px}
+  h1{font-size:22px}.hero{grid-template-columns:minmax(0,1fr)}.hero .v{font-size:24px}
+  .card{padding:16px 14px}.money input{font-size:22px}
+  .tabs button{flex:1 1 auto;padding:8px 12px}
 }
 @media (max-width:400px){
   .row2{grid-template-columns:minmax(0,1fr);gap:0}
   .wrap{padding:16px 12px 40px}
-  header{flex-direction:column-reverse;align-items:stretch}
+  .topbar{flex-direction:column-reverse;align-items:stretch}
   .lang{align-self:flex-end}
+  .tagline{max-width:none}
   td.n{font-size:14px;padding-left:8px}
 }
-@media print{.lang,.actions,.seg{display:none}body{background:#fff}.card{border:0}}
+@media (max-width:340px){.money input{font-size:19px;padding-right:38px}.money span{right:10px;font-size:17px}}
+@media print{.lang,.actions,.seg,.tabs{display:none}body{background:#fff}.card{border:0}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <div>
-      <h1 data-i="title"></h1>
-      <p class="sub" data-i="subtitle"></p>
+  <div class="topbar">
+    <div class="brand" aria-label="edubuh">
+      <span class="logo">edubuh</span>
+      <span class="sep" aria-hidden="true"></span>
+      <span class="tagline" data-i="tagline"></span>
     </div>
     <div class="lang" role="group" aria-label="Язык / Тіл">
       <button type="button" data-lang="ru">RU</button>
       <button type="button" data-lang="kz">ҚАЗ</button>
     </div>
-  </header>
+  </div>
 
-  <div class="grid">
+  <h1 data-i="title"></h1>
+  <p class="sub" data-i="subtitle"></p>
+
+  <nav class="tabs" role="tablist">
+    <button type="button" data-tab="zp" data-i="tabZp"></button>
+    <button type="button" data-tab="trip" data-i="tabTrip"></button>
+    <button type="button" data-tab="gph" data-i="tabGph"></button>
+  </nav>
+
+  <!-- ================= ДОГОВОР ГПХ ================= -->
+  <div class="grid" data-pane="gph">
+    <section class="card">
+      <div class="seg" role="group">
+        <button type="button" data-gmode="direct" data-i="gModeDirect"></button>
+        <button type="button" data-gmode="reverse" data-i="gModeReverse"></button>
+      </div>
+      <div class="field">
+        <label class="f" for="gAmount" id="gAmountLabel"></label>
+        <div class="money"><input id="gAmount" class="num" inputmode="numeric" autocomplete="off" value="400 000"><span>₸</span></div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label class="f" for="gYear" data-i="year"></label>
+          <select id="gYear"><option value="2026">2026</option><option value="2025">2025</option></select>
+        </div>
+        <div class="field">
+          <label class="f" for="gEmployer" data-i="gCompare"></label>
+          <select id="gEmployer">
+            <option value="too" data-i="empToo"></option>
+            <option value="ip" data-i="empIp"></option>
+            <option value="snr" data-i="empSnr"></option>
+          </select>
+        </div>
+      </div>
+      <label class="chk"><input type="checkbox" id="gBasic" checked><span id="gBasicLabel"></span></label>
+      <label class="chk"><input type="checkbox" id="gPens"><span data-i="gPens"></span></label>
+      <p class="dnote" id="gNote" style="margin-top:10px"></p>
+      <div id="gWarn" class="warn" hidden></div>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <div class="hero">
+        <div><div class="k" data-i="gHero1"></div><div class="v" id="gHero1">—</div></div>
+        <div><div class="k" data-i="net"></div><div class="v acc" id="gHero2">—</div></div>
+      </div>
+      <h2 data-i="gSecWithheld"></h2>
+      <table id="gTab"></table>
+      <h2 data-i="gSecAgent"></h2>
+      <table id="gAgent"></table>
+      <h2 class="big" data-i="gSecCmp"></h2>
+      <p class="dnote" id="gCmpNote"></p>
+      <div id="gCmp"></div>
+      <div class="rules">
+        <h4 data-i="gRulesH"></h4>
+        <ul id="gRules"></ul>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn" data-copy="gph" data-i="copy"></button>
+        <button type="button" class="btn" data-print data-i="print"></button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= ЗАРПЛАТА ================= -->
+  <div class="grid" data-pane="zp">
     <section class="card">
       <div class="seg" role="group">
         <button type="button" data-mode="direct" data-i="modeDirect"></button>
@@ -128,10 +241,7 @@ footer p{margin:0 0 8px}
 
       <div class="field">
         <label class="f" for="amount" id="amountLabel"></label>
-        <div class="money">
-          <input id="amount" inputmode="numeric" autocomplete="off" value="300 000">
-          <span>₸</span>
-        </div>
+        <div class="money"><input id="amount" class="num" inputmode="numeric" autocomplete="off" value="300 000"><span>₸</span></div>
       </div>
 
       <div class="row2">
@@ -164,6 +274,29 @@ footer p{margin:0 0 8px}
         <label class="chk"><input type="checkbox" id="pensioner"><span data-i="pensioner"></span></label>
         <label class="chk"><input type="checkbox" id="student"><span data-i="student"></span></label>
         <label class="chk"><input type="checkbox" id="before1975"><span data-i="before1975"></span></label>
+        <label class="chk"><input type="checkbox" id="split"><span data-i="split"></span></label>
+      </div>
+      <div class="sub-box" id="splitBox" hidden>
+        <div class="field">
+          <label class="f" for="month" data-i="month"></label>
+          <select id="month"></select>
+        </div>
+        <div class="row2">
+          <div class="field"><label class="f" for="d1" data-i="d1"></label><input class="sm num" id="d1" inputmode="numeric"></div>
+          <div class="field"><label class="f" for="d2" id="d2Label"></label><input class="sm num" id="d2" inputmode="numeric"></div>
+        </div>
+        <div class="field">
+          <label class="f" for="advType" data-i="advType"></label>
+          <select id="advType"><option value="days" data-i="advDays"></option><option value="pct" data-i="advPct"></option></select>
+        </div>
+        <div class="field" id="advPctField" hidden>
+          <label class="f" for="advPctV" data-i="advPctV"></label><input class="sm num" id="advPctV" inputmode="numeric" value="50">
+        </div>
+        <div class="field">
+          <label class="f" for="advTax" data-i="advTax"></label>
+          <select id="advTax"><option value="each" data-i="taxEach"></option><option value="final" data-i="taxFinal"></option></select>
+        </div>
+        <p class="dnote" data-i="splitNote"></p>
       </div>
 
       <details id="dTrip">
@@ -189,7 +322,7 @@ footer p{margin:0 0 8px}
         <label class="chk"><input type="checkbox" id="hire"><span data-i="hire"></span></label>
       </details>
 
-      <details id="dYtd">
+      <details id="dYtd" class="last">
         <summary><span data-i="ytdTitle"></span><span class="badge" id="bYtd" hidden></span></summary>
         <p class="dnote" id="ytdNote"></p>
         <div class="field"><label class="f" for="ytd" data-i="ytd"></label><input class="sm num" id="ytd" inputmode="numeric" placeholder="0"></div>
@@ -204,24 +337,93 @@ footer p{margin:0 0 8px}
         <div><div class="k" data-i="gross"></div><div class="v" id="heroGross">—</div></div>
         <div><div class="k" data-i="net"></div><div class="v acc" id="heroNet">—</div></div>
       </div>
-
       <div id="accrualBlock"><h2 data-i="secAccrual"></h2><table id="tAcc"></table></div>
       <h2 data-i="secEmployee"></h2>
       <table id="tEmp"></table>
       <h2 data-i="secEmployer"></h2>
       <table id="tEr"></table>
-
+      <div id="splitOut"></div>
       <div class="actions">
-        <button type="button" class="btn" id="copy" data-i="copy"></button>
-        <button type="button" class="btn" id="print" data-i="print"></button>
+        <button type="button" class="btn" data-copy="zp" data-i="copy"></button>
+        <button type="button" class="btn" data-print data-i="print"></button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= КОМАНДИРОВКИ И РАЗЪЕЗДЫ ================= -->
+  <div class="grid" data-pane="trip">
+    <section class="card">
+      <p class="hsec" data-i="tSecWorker"></p>
+      <div class="field">
+        <label class="f" for="tSalary" data-i="tSalary"></label>
+        <div class="money"><input id="tSalary" class="num" inputmode="numeric" autocomplete="off" value="400 000"><span>₸</span></div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label class="f" for="tYear" data-i="year"></label>
+          <select id="tYear"><option value="2026">2026</option><option value="2025">2025</option></select>
+        </div>
+        <div class="field">
+          <label class="f" for="tEmployer" data-i="employer"></label>
+          <select id="tEmployer">
+            <option value="too" data-i="empToo"></option>
+            <option value="ip" data-i="empIp"></option>
+            <option value="snr" data-i="empSnr"></option>
+          </select>
+        </div>
+      </div>
+      <label class="chk"><input type="checkbox" id="tBasic" checked><span id="tBasicLabel"></span></label>
+
+      <p class="hsec" style="margin-top:18px" data-i="tSecRoad"></p>
+      <div class="row2">
+        <div class="field"><label class="f" for="tDays" data-i="tDays"></label><input class="sm num" id="tDays" inputmode="numeric" value="10"></div>
+        <div class="field"><label class="f" for="tRate" data-i="tRate"></label><input class="sm num" id="tRate" inputmode="numeric" value="30 000"></div>
+      </div>
+      <div class="field"><label class="f" for="tDocs" data-i="tDocs"></label><input class="sm num" id="tDocs" inputmode="numeric" value="0"></div>
+      <label class="chk"><input type="checkbox" id="tNoDocs"><span data-i="tNoDocs"></span></label>
+
+      <p class="hsec" style="margin-top:18px" data-i="tSecTrip"></p>
+      <div class="row2">
+        <div class="field">
+          <label class="f" for="tDir" data-i="tDir"></label>
+          <select id="tDir"><option value="rk" data-i="tDirRk"></option><option value="abr" data-i="tDirAbr"></option></select>
+        </div>
+        <div class="field"><label class="f" for="tOver40" data-i="tOver40"></label><input class="sm num" id="tOver40" inputmode="numeric" placeholder="0"></div>
+      </div>
+
+      <p class="hsec" style="margin-top:6px" data-i="tSecRoadType"></p>
+      <div class="field"><label class="f" for="tNorm" data-i="tNorm"></label><input class="sm num" id="tNorm" inputmode="numeric" value="30 000"></div>
+      <p class="dnote" data-i="tNormNote"></p>
+
+      <div id="tWarn" class="warn" hidden></div>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <div class="hero">
+        <div><div class="k" data-i="tHeroA"></div><div class="v" id="tHeroA">—</div></div>
+        <div><div class="k" data-i="tHeroB"></div><div class="v acc" id="tHeroB">—</div></div>
+        <div class="note" id="tHeroNote"></div>
+      </div>
+      <div class="cmp-wide" id="tCmpWide"></div>
+      <div class="cmp cmp-narrow" id="tCmp"></div>
+      <div class="rules">
+        <h4 data-i="rTripH"></h4>
+        <ul id="rTrip"></ul>
+        <h4 data-i="rRoadH"></h4>
+        <ul id="rRoad"></ul>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn" data-copy="trip" data-i="copy"></button>
+        <button type="button" class="btn" data-print data-i="print"></button>
       </div>
     </section>
   </div>
 
   <footer>
     <p class="lock"><span aria-hidden="true">🔒</span><span data-i="privacy"></span></p>
-    <p class="soon"><span aria-hidden="true">📅</span><span data-i="soon2027"></span></p>
+    <p><span aria-hidden="true">📅</span><span data-i="soon2027"></span></p>
     <p id="disclaimer"></p>
+    <p class="fbrand"><span class="logo">edubuh</span><span data-i="tagline"></span></p>
   </footer>
 </div>
 
@@ -230,67 +432,56 @@ footer p{margin:0 0 8px}
 const YEARS = {
   2026: { // Новый НК РК с 01.01.2026; Закон о бюджете на 2026–2028 гг. № 239-VIII
     MRP: 4325, MZP: 85000,
-    IPN: 0.10, IPN_HIGH: 0.15, IPN_HIGH_THRESHOLD_MRP: 8500, // годовой облагаемый доход, нарастающим итогом
-    BASIC_DED_MRP: 30,                 // базовый вычет, ст. 403, в месяц
-    DIS_DED_12_MRP: 5000, DIS_DED_3_MRP: 882, // соц. вычет, ст. 404, в год
-    CORR90_MRP: null,                  // корректировка 90% отменена
-    OPV: 0.10, OPV_MAX_MZP: 50,
-    OPVR: 0.035, OPVR_MAX_MZP: 50,
-    VOSMS: 0.02, VOSMS_MAX_MZP: 20,
-    OOSMS: 0.03, OOSMS_MAX_MZP: 40,
+    IPN: 0.10, IPN_HIGH: 0.15, IPN_HIGH_THRESHOLD_MRP: 8500,
+    BASIC_DED_MRP: 30, DIS_DED_12_MRP: 5000, DIS_DED_3_MRP: 882, CORR90_MRP: null,
+    OPV: 0.10, OPV_MAX_MZP: 50, OPVR: 0.035, OPVR_MAX_MZP: 50,
+    VOSMS: 0.02, VOSMS_MAX_MZP: 20, OOSMS: 0.03, OOSMS_MAX_MZP: 40,
     SO: 0.05, SO_MIN_MZP: 1, SO_MAX_MZP: 7,
     SN_TOO: 0.06, SN_MINUS_SO: false, SN_MIN_MRP: 14, SN_IP_MRP: 1,
-    PERDIEM_RK_MRP: 6, PERDIEM_ABR_MRP: 8
+    PERDIEM_RK_MRP: 6, PERDIEM_ABR_MRP: 8, PERDIEM_MAX_DAYS: 40,
+    GPH_SO_MIN_MZP: 0, GPH_SO_IN_IPN: true,   // ГПХ: минимальная база СО отменена, СО уменьшает базу ИПН
+    // праздничные (нерабочие) дни с учётом переносов; рабочие выходные
+    OFF: ['1-1','1-2','1-7','3-9','3-23','3-24','3-25','5-1','5-7','5-11','5-27','7-6','10-26','12-16'], WORK: []
   },
-  2025: { // НК РК (ред. до 01.01.2026)
+  2025: {
     MRP: 3932, MZP: 85000,
     IPN: 0.10, IPN_HIGH: null, IPN_HIGH_THRESHOLD_MRP: null,
-    BASIC_DED_MRP: 14,                 // стандартный вычет, в месяц
-    DIS_DED_12_MRP: 882, DIS_DED_3_MRP: 882,
-    CORR90_MRP: 25,                    // облагаемый доход −90%, если начислено не более 25 МРП
-    OPV: 0.10, OPV_MAX_MZP: 50,
-    OPVR: 0.025, OPVR_MAX_MZP: 50,
-    VOSMS: 0.02, VOSMS_MAX_MZP: 10,
-    OOSMS: 0.03, OOSMS_MAX_MZP: 10,
+    BASIC_DED_MRP: 14, DIS_DED_12_MRP: 882, DIS_DED_3_MRP: 882, CORR90_MRP: 25,
+    OPV: 0.10, OPV_MAX_MZP: 50, OPVR: 0.025, OPVR_MAX_MZP: 50,
+    VOSMS: 0.02, VOSMS_MAX_MZP: 10, OOSMS: 0.03, OOSMS_MAX_MZP: 10,
     SO: 0.05, SO_MIN_MZP: 1, SO_MAX_MZP: 7,
     SN_TOO: 0.11, SN_MINUS_SO: true, SN_MIN_MRP: 14, SN_IP_MRP: 1,
-    PERDIEM_RK_MRP: 6, PERDIEM_ABR_MRP: 8
+    PERDIEM_RK_MRP: 6, PERDIEM_ABR_MRP: 8, PERDIEM_MAX_DAYS: 40,
+    GPH_SO_MIN_MZP: 1, GPH_SO_IN_IPN: false,
+    OFF: ['1-1','1-2','1-3','1-7','3-10','3-21','3-24','3-25','5-1','5-7','5-9','6-6','7-7','9-1','10-27','12-16'], WORK: ['1-5']
   }
 };
 
-/* ===== РАСЧЁТ ===== */
+/* ===== РАСЧЁТ ЗАРПЛАТЫ ===== */
 const r = x => Math.round(x);
 
-// base — оклад за полный месяц; o — все параметры формы
 function calc(base, o){
   const P = YEARS[o.year], {MRP, MZP} = P;
   const norm = o.norm > 0 ? o.norm : 0;
   const worked = norm ? Math.min(Math.max(o.worked || 0, 0), norm) : 0;
-  const partial = norm > 0 && o.worked !== null && worked < norm;
+  const partial = norm > 0 && o.worked !== null && o.worked !== undefined && worked < norm;
   const accrued = partial ? r(base * worked / norm) : r(base);
 
-  // суточные
   const limRk = P.PERDIEM_RK_MRP * MRP, limAbr = P.PERDIEM_ABR_MRP * MRP;
   const dRk = o.daysRk || 0, dAbr = o.daysAbr || 0;
   const perDiem = dRk * (o.rateRk || 0) + dAbr * (o.rateAbr || 0);
   const perDiemFree = dRk * Math.min(o.rateRk || 0, limRk) + dAbr * Math.min(o.rateAbr || 0, limAbr);
   const perDiemTaxed = perDiem - perDiemFree;
 
-  const inc = accrued + perDiemTaxed; // доход, облагаемый налогами и взносами
+  const inc = accrued + perDiemTaxed + (o.extra || 0);
 
   const pens = !!o.pensioner, dis = o.disability || 'none', anyDis = dis !== 'none', perm12 = dis === '12perm';
-  const ex = {
-    opv: pens || perm12,
-    vosms: pens || anyDis || !!o.student,
-    oosms: pens || anyDis || !!o.student,
-    opvr: pens || perm12 || !!o.before1975,
-    so: pens
-  };
+  const ex = { opv: pens || perm12, vosms: pens || anyDis || !!o.student, oosms: pens || anyDis || !!o.student,
+    opvr: pens || perm12 || !!o.before1975, so: pens };
 
   const opv   = ex.opv   ? 0 : r(Math.min(inc, P.OPV_MAX_MZP*MZP) * P.OPV);
   const vosms = ex.vosms ? 0 : r(Math.min(inc, P.VOSMS_MAX_MZP*MZP) * P.VOSMS);
 
-  // ИПН
   let tb = Math.max(0, inc - opv - vosms);
   const basicUsed = o.basic ? Math.min(tb, P.BASIC_DED_MRP*MRP) : 0;
   tb -= basicUsed;
@@ -307,7 +498,6 @@ function calc(base, o){
     ipn = r(low*P.IPN + high*P.IPN_HIGH);
   } else ipn = r(tb * P.IPN);
 
-  // работодатель
   const opvr  = ex.opvr  ? 0 : r(Math.min(inc, P.OPVR_MAX_MZP*MZP) * P.OPVR);
   const oosms = ex.oosms ? 0 : r(Math.min(inc, P.OOSMS_MAX_MZP*MZP) * P.OOSMS);
   const soBase = Math.min(Math.max(inc - opv, P.SO_MIN_MZP*MZP), P.SO_MAX_MZP*MZP);
@@ -322,7 +512,7 @@ function calc(base, o){
     sn = r(Math.max(0, P.SN_IP_MRP*MRP - (P.SN_MINUS_SO ? so : 0)));
   }
 
-  const net = accrued + perDiem - opv - vosms - ipn;
+  const net = accrued + perDiem + (o.extra || 0) - opv - vosms - ipn;
   const employerTotal = opvr + oosms + so + sn;
   return { base: r(base), accrued, partial, worked, norm, perDiem, perDiemFree, perDiemTaxed, inc,
     opv, vosms, ipn, net, opvr, oosms, so, sn, employerTotal,
@@ -330,7 +520,6 @@ function calc(base, o){
     basicUsed, socialUsed, corr, taxable: tb, high, ex, P };
 }
 
-// обратный расчёт: подбираем оклад, при котором «на руки» = цель
 function reverse(target, o){
   if (target <= 0) return calc(0, o);
   let lo = 0, hi = Math.max(target * 2, 200000);
@@ -341,17 +530,142 @@ function reverse(target, o){
   return calc(g, o);
 }
 
+/* рабочие дни (5-дневка) по половинам месяца с учётом праздников и переносов */
+function workdays(y, m){
+  const P = YEARS[y], last = new Date(y, m, 0).getDate();
+  let a = 0, b = 0;
+  for (let d = 1; d <= last; d++){
+    const k = m + '-' + d, w = new Date(y, m - 1, d).getDay();
+    const isWork = ((w > 0 && w < 6) && !P.OFF.includes(k)) || P.WORK.includes(k);
+    if (!isWork) continue;
+    if (d <= 15) a++; else b++;
+  }
+  return { a, b, last };
+}
+
+/* разбивка на две половины месяца */
+function splitHalves(c, o){
+  const d1 = Math.max(0, o.d1 || 0), d2 = Math.max(0, o.d2 || 0);
+  let a1;
+  if (o.advType === 'pct') a1 = r(c.base * Math.min(100, Math.max(0, o.advPct || 0)) / 100);
+  else a1 = d1 + d2 > 0 ? r(c.accrued * d1 / (d1 + d2)) : 0;
+  a1 = Math.min(a1, c.accrued);
+  const share = c.accrued > 0 ? a1 / c.accrued : 0;
+  const each = o.advTax === 'each';
+  const h1 = { income:a1, opv: each ? r(c.opv*share) : 0, vosms: each ? r(c.vosms*share) : 0, ipn: each ? r(c.ipn*share) : 0 };
+  h1.net = h1.income - h1.opv - h1.vosms - h1.ipn;
+  const h2 = { income: c.accrued + c.perDiem + (o.extra||0) - a1, opv: c.opv - h1.opv, vosms: c.vosms - h1.vosms, ipn: c.ipn - h1.ipn };
+  h2.net = h2.income - h2.opv - h2.vosms - h2.ipn;
+  return { d1, d2, h1, h2 };
+}
+
+/* ===== ДОГОВОР ГПХ (физлицо-резидент, не ИП) ===== */
+function calcGph(amount, o){
+  const P = YEARS[o.year], {MRP, MZP} = P, inc = r(amount), pens = !!o.pensioner;
+  const opv   = pens ? 0 : r(Math.min(inc, P.OPV_MAX_MZP*MZP) * P.OPV);
+  const vosms = pens ? 0 : r(Math.min(inc, P.VOSMS_MAX_MZP*MZP) * P.VOSMS);
+  let so = 0;
+  if (!pens && inc > 0){
+    const soBase = Math.min(Math.max(inc - opv, P.GPH_SO_MIN_MZP*MZP), P.SO_MAX_MZP*MZP);
+    so = r(soBase * P.SO);
+  }
+  let tb = Math.max(0, inc - opv - vosms - (P.GPH_SO_IN_IPN ? so : 0));
+  const basicUsed = o.basic ? Math.min(tb, P.BASIC_DED_MRP*MRP) : 0;
+  tb -= basicUsed;
+  let ipn, high = 0;
+  if (P.IPN_HIGH){
+    const threshold = P.IPN_HIGH_THRESHOLD_MRP * MRP;
+    const low = Math.min(tb, threshold); high = tb - low;
+    ipn = r(low*P.IPN + high*P.IPN_HIGH);
+  } else ipn = r(tb * P.IPN);
+  const withheld = opv + vosms + so + ipn;
+  return { base:inc, opv, vosms, so, ipn, withheld, net: inc - withheld, basicUsed, taxable: tb, high, cost: inc, pens, P };
+}
+function reverseGph(target, o){
+  if (target <= 0) return calcGph(0, o);
+  let lo = 0, hi = Math.max(target * 2, 200000);
+  while (calcGph(hi, o).net < target && hi < 1e12) hi *= 2;
+  for (let i = 0; i < 90; i++){ const mid = (lo+hi)/2; if (calcGph(mid, o).net < target) lo = mid; else hi = mid; }
+  let g = Math.ceil(hi);
+  while (g > 0 && calcGph(g - 1, o).net >= target) g--;
+  return calcGph(g, o);
+}
+
+/* ===== КОМАНДИРОВКА vs РАЗЪЕЗДНОЙ ХАРАКТЕР ===== */
+function calcTrip(o){
+  const P = YEARS[o.year];
+  const days = o.days || 0, rate = o.rate || 0, docs = o.docs || 0;
+  const paid = days * rate + docs;
+  const docsTaxed = o.noDocs ? docs : 0;
+
+  // командировка
+  const lim = (o.dir === 'abr' ? P.PERDIEM_ABR_MRP : P.PERDIEM_RK_MRP) * P.MRP;
+  const over40 = Math.min(o.over40 || 0, days);
+  const normalDays = days - over40;
+  const tripFree = normalDays * Math.min(rate, lim) + (o.noDocs ? 0 : docs);
+  const tripTaxed = paid - tripFree;
+  const tripParts = { overLimit: normalDays * Math.max(0, rate - lim), over40: over40 * rate, docs: docsTaxed };
+
+  // разъездной характер
+  const nrm = o.norm || 0;
+  const roadFree = days * Math.min(rate, nrm) + (o.noDocs ? 0 : docs);
+  const roadTaxed = paid - roadFree;
+  const roadParts = { overLimit: days * Math.max(0, rate - nrm), docs: docsTaxed };
+
+  const baseOpts = { year:o.year, employer:o.employer, basic:o.basic, disability:'none' };
+  const c0 = calc(o.salary, baseOpts);
+  const variant = (taxed, free, parts) => {
+    const c1 = calc(o.salary, { ...baseOpts, extra: taxed });
+    const emp = { opv:c1.opv-c0.opv, vosms:c1.vosms-c0.vosms, ipn:c1.ipn-c0.ipn };
+    const er  = { opvr:c1.opvr-c0.opvr, oosms:c1.oosms-c0.oosms, so:c1.so-c0.so, sn:c1.sn-c0.sn };
+    const empT = emp.opv + emp.vosms + emp.ipn, erT = er.opvr + er.oosms + er.so + er.sn;
+    return { paid, free, taxed, parts, emp, er, empT, erT, net: paid - empT, cost: paid + erT };
+  };
+  return { lim, trip: variant(tripTaxed, tripFree, tripParts), road: variant(roadTaxed, roadFree, roadParts), P, days, over40 };
+}
+
 /* ===== ТЕКСТЫ ===== */
 const T = {
 ru:{
-  title:'Калькулятор зарплаты', subtitle:'Налоги и взносы с зарплаты в Казахстане — 2025 и 2026 годы',
+  tagline:'комплексные онлайн-курсы для бухгалтеров',
+  title:'Калькулятор зарплаты, командировок и ГПХ', subtitle:'Налоги и взносы в Казахстане за 2025 и 2026 годы',
+  tabZp:'Зарплата', tabTrip:'Командировки и разъездной характер', tabGph:'Договор ГПХ',
+  gModeDirect:'Договор → на руки', gModeReverse:'На руки → договор', gAmtDirect:'Вознаграждение по договору ГПХ за месяц, ₸',
+  gCompare:'Для сравнения: работодатель', gBasicLabel:n=>`Базовый вычет ${n} МРП (есть заявление исполнителя)`,
+  gPens:'Исполнитель — пенсионер по возрасту',
+  gNote:y=>y===2026
+    ?'Расчёт для физлица-резидента, не ИП. Все платежи удерживает заказчик (налоговый агент) из вознаграждения. С 2026 года СО уменьшают базу ИПН, минимальной базы СО нет.'
+    :'Расчёт для физлица-резидента, не ИП. В 2025 году СО по ГПХ не уменьшали базу ИПН и считались не менее чем с 1 МЗП.',
+  gHero1:'Сумма договора', gSecWithheld:'Удерживается из вознаграждения', gSecAgent:'Платит заказчик сверху',
+  gSo:'СО — социальные отчисления, 5%', gSoHint:(y)=>y===2026?'от (доход − ОПВ), не более 7 МЗП':'от (доход − ОПВ), от 1 до 7 МЗП',
+  gIpnHint:(t,b,y)=>`облагаемая база ${t}; вычет ${b}` + (y===2026?'; ОПВ, ВОСМС и СО уменьшают базу':'; ОПВ и ВОСМС уменьшают базу'),
+  gAgentNone:'ОПВР, ООСМС, СН', gAgentNoneHint:'с выплат по ГПХ не начисляются',
+  gSecCmp:'ГПХ или трудовой договор', gCmpNote:'Та же сумма, если оформить человека по трудовому договору.',
+  gColGph:'Договор ГПХ', gColEmp:'Трудовой договор',
+  cAccr:'Начислено', cWith:'Удержано с человека', cNet:'На руки', cEr:'Платит компания сверху', cCost:'Затраты компании',
+  gRulesH:'Что важно по ГПХ',
+  gRules:y=>[
+    'Заказчик — налоговый агент: удерживает ОПВ, ВОСМС, СО и ИПН из вознаграждения и перечисляет их за исполнителя.',
+    y===2026?'С 2026 года СО по ГПХ включаются в вычет при расчёте ИПН, минимальная база СО отменена, предел — 7 МЗП.':'В 2025 году СО по ГПХ исчислялись от базы не менее 1 МЗП и не уменьшали ИПН.',
+    'Базовый вычет применяется по заявлению исполнителя и только у одного налогового агента.',
+    'Соцналог, ОПВР и ООСМС с выплат по ГПХ не начисляются — поэтому ГПХ дешевле для компании, но налоговая проверяет такие договоры на признаки трудовых отношений.',
+    'ИП, а также нерезиденты облагаются по другим правилам — этот расчёт к ним не относится.'],
+  gWarnHigh:'Облагаемый доход превышает 8 500 МРП — часть облагается ИПН по ставке 15%.',
   modeDirect:'Оклад → на руки', modeReverse:'На руки → оклад',
   amountDirect:'Оклад за полный месяц, ₸', amountReverse:'Сумма на руки, ₸',
   year:'Год', employer:'Работодатель', empToo:'ТОО на общем режиме', empIp:'ИП на общем режиме', empSnr:'Упрощёнка (СНР)',
   disability:'Инвалидность', disNone:'Нет', dis12perm:'I или II группа, бессрочно', dis12temp:'I или II группа, на срок', dis3:'III группа',
   basic:(n,y)=>y===2026?`Базовый вычет ${n} МРП (есть заявление работника)`:`Стандартный вычет ${n} МРП (есть заявление работника)`,
   pensioner:'Пенсионер по возрасту', student:'Студент очной формы обучения', before1975:'Родился до 1 января 1975 года',
-  tripTitle:'Командировка', tripNote:(a,b)=>`Суточные не облагаются в пределах 6 МРП в день по Казахстану (${a}) и 8 МРП за рубежом (${b}), если командировка короче 40 дней. Превышение облагается всеми налогами. Проезд и жильё по документам не облагаются — их вводить не нужно.`,
+  split:'Разбить выплату на две половины месяца (1–15 и 16–конец)',
+  month:'Месяц', months:['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+  d1:'Рабочих дней 1–15', d2:l=>`Рабочих дней 16–${l}`,
+  advType:'Первая часть (аванс)', advDays:'За отработанные дни 1–15', advPct:'Фиксированный процент оклада',
+  advPctV:'Процент оклада, %', advTax:'Налоги и взносы удерживаются', taxEach:'С каждой части пропорционально', taxFinal:'Полностью при окончательном расчёте',
+  splitNote:'Рабочие дни подставлены по производственному календарю РК (пятидневка, праздники и переносы). Если работник отработал не все дни — исправьте. Взносы работодателя (ОПВР, ООСМС, СО, СН) начисляются за месяц целиком. Суточные сверх оклада попадают во вторую часть.',
+  secSplit:'Выплата по половинам месяца', secH1:'1–15 число', secH2:l=>`16–${l} число (окончательный расчёт)`,
+  h1Hint:(d,n)=>`${d} из ${n} рабочих дней`, h1HintPct:p=>`${p}% оклада`, splitInc:'Начислено', splitNet:'К выплате',
+  tripTitle:'Командировка в этом месяце', tripNote:(a,b)=>`Суточные не облагаются в пределах 6 МРП в день по Казахстану (${a}) и 8 МРП за рубежом (${b}), не более 40 дней одной командировки. Превышение облагается всеми налогами. Подробный разбор — на вкладке «Командировки и разъездной характер».`,
   daysRk:'Дней по Казахстану', daysAbr:'Дней за рубежом', rateDay:'Суточные в день, ₸',
   partTitle:'Неполный месяц', partNote:'Для приёма или увольнения в середине месяца, отпуска без содержания, неполной ставки. Оклад пересчитается пропорционально отработанным дням.',
   norm:'Норма рабочих дней', worked:'Отработано дней', hire:'Месяц приёма или увольнения (СН — от фактического дохода, без минимума 14 МРП)',
@@ -369,29 +683,85 @@ ru:{
   snIp:minus=>minus?'1 МРП за работника минус СО':'1 МРП за работника', snSnr:'на упрощёнке не платится',
   exempt:'освобождён',
   ipnHint:(t,b,s,c)=>`облагаемая база ${t}; вычет ${b}`+(s?`; по инвалидности ${s}`:'')+(c?`; корректировка 90% ${c}`:''),
-  ipnHigh:h=>`из них ${h} — по ставке 15%`,
-  soHint:'от (доход − ОПВ), в пределах 1–7 МЗП',
+  ipnHigh:h=>`из них ${h} — по ставке 15%`, soHint:'от (доход − ОПВ), в пределах 1–7 МЗП',
   totalEmp:'Итого удержано', totalEr:'Итого сверху', cost:'Стоимость сотрудника для компании',
   copy:'Скопировать расчёт', copied:'Скопировано ✓', print:'Печать / PDF',
   warnLow:'Оклад за полный месяц ниже МЗП (85 000 ₸) — допустимо только при неполном рабочем времени. СО считаются от минимальной базы 1 МЗП.',
   warnBasicOff:'Без заявления на вычет ИПН считается со всей суммы.',
-  warn40:'Если командировка длится 40 дней и больше, нормы суточных не применяются — проверьте порядок налогообложения.',
+  warn40:'Если командировка длится 40 дней и больше, суточные с 41-го дня облагаются налогами — посчитайте их на вкладке «Командировки и разъездной характер».',
   warnDays:'Отработанных дней больше нормы — расчёт сделан за полный месяц.',
+  /* вкладка командировок */
+  tSecWorker:'Работник', tSalary:'Оклад работника за месяц, ₸', tBasicLabel:n=>`Базовый вычет ${n} МРП (есть заявление)`,
+  tSecRoad:'Дни в пути в этом месяце', tDays:'Дней в пути', tRate:'Выплата в день (суточные), ₸',
+  tDocs:'Проезд, проживание, ГСМ по документам, ₸', tNoDocs:'Расходы не подтверждены документами',
+  tSecTrip:'Если оформить командировку', tDir:'Направление', tDirRk:'По Казахстану', tDirAbr:'За рубеж', tOver40:'Из них дней после 40-го дня командировки',
+  tSecRoadType:'Если работа имеет разъездной характер', tNorm:'Норма компенсации в день по акту работодателя, ₸',
+  tNormNote:'Норму устанавливает сам работодатель — в трудовом или коллективном договоре либо в акте работодателя. Если нормы нет, вся компенсация облагается.',
+  tHeroA:'Командировка: затраты компании', tHeroB:'Разъездной характер: затраты компании',
+  tHeroNote:(d,best)=>d===0?'Затраты по обоим вариантам одинаковые.':`Разница ${fmt(Math.abs(d))} в пользу варианта «${best}».`,
+  vTrip:'Командировка', vRoad:'Разъездной характер', vBest:'выгоднее',
+  vPaid:'Выплачено работнику', vFree:'Не облагается', vTaxed:'Облагается как доход',
+  vOverLimTrip:l=>`суточные сверх ${l} в день`, vOverLimRoad:'сверх нормы работодателя', vOver40:'суточные с 41-го дня', vDocs:'расходы без документов',
+  vEmp:'Удержится с работника', vEmpHint:'ОПВ, ВОСМС, ИПН', vNet:'Работник получит на руки',
+  vEr:'Налоги работодателя сверху', vErHint:'ОПВР, ООСМС, СО, СН', vCost:'Итого затраты компании',
+  rTripH:'Командировка', rRoadH:'Разъездной характер работы',
+  rTrip:l=>[`Оформляется приказом о направлении в командировку, работник временно выезжает с постоянного места работы.`,
+    `Суточные не облагаются в пределах 6 МРП в день по Казахстану (${l.rk}) и 8 МРП за рубежом (${l.abr}).`,
+    `Норма действует не более 40 календарных дней одной командировки; суточные с 41-го дня — доход работника.`,
+    `Проезд и проживание по подтверждающим документам не облагаются независимо от длительности.`],
+  rRoad:()=>[`Работа постоянно проходит в пути (например, водители, экспедиторы): командировка не оформляется.`,
+    `Перечень должностей, размер и порядок компенсации устанавливаются трудовым или коллективным договором либо актом работодателя.`,
+    `Компенсация в пределах этих норм не является доходом работника (ст. 366 НК РК), сверх норм — облагается всеми налогами.`,
+    `Компенсация выплачивается за дни фактического нахождения в пути — дни подтверждаются документами (например, путевыми листами).`],
+  tWarnSalary:'Укажите оклад работника — от него зависит, сколько налогов добавится с облагаемой части.',
+  tWarnNoNorm:'Норма работодателя не указана — при разъездном характере вся компенсация будет облагаться.',
+  tWarnDocs:'Расходы без подтверждающих документов не уменьшают налоги ни при командировке, ни при разъездном характере.',
   privacy:'Все расчёты выполняются прямо в вашем браузере. Введённые суммы никуда не отправляются и не сохраняются.',
   soon2027:'В январе добавим 2027 год. Сейчас его добавлять рано: МРП на 2027 год утвердят только законом о бюджете в декабре.',
   disclaimer:y=>y===2026
-    ?'Расчёт справочный. 2026 год: НК РК (ст. 401–404, гл. 56), Социальный кодекс РК, Закон «Об ОСМС». МРП 4 325 ₸, МЗП 85 000 ₸. Не учитываются: нерезиденты, договоры ГПХ, ОППВ за вредные условия, вахта и суммированный учёт. Ставки проверены на сентябрь 2026 года.'
-    :'Расчёт справочный. 2025 год: НК РК в редакции до 01.01.2026. МРП 3 932 ₸, МЗП 85 000 ₸, стандартный вычет 14 МРП, корректировка 90% при доходе не более 25 МРП, СН 11% минус СО, ОПВР 2,5%, предел ОСМС 10 МЗП. Не учитываются: нерезиденты, договоры ГПХ, ОППВ за вредные условия, вахта.'
+    ?'Расчёт справочный. 2026 год: НК РК (ст. 366, 401–404, гл. 56), Социальный кодекс РК, Закон «Об ОСМС». МРП 4 325 ₸, МЗП 85 000 ₸. Не учитываются: нерезиденты, ОППВ за вредные условия, вахта и суммированный учёт. Ставки проверены на сентябрь 2026 года.'
+    :'Расчёт справочный. 2025 год: НК РК в редакции до 01.01.2026. МРП 3 932 ₸, МЗП 85 000 ₸, стандартный вычет 14 МРП, корректировка 90% при доходе не более 25 МРП, СН 11% минус СО, ОПВР 2,5%, предел ОСМС 10 МЗП. Не учитываются: нерезиденты, ОППВ за вредные условия, вахта.'
 },
 kz:{
-  title:'Жалақы калькуляторы', subtitle:'Қазақстандағы жалақыдан салықтар мен жарналар — 2025 және 2026 жылдар',
+  tagline:'бухгалтерлерге арналған кешенді онлайн-курстар',
+  title:'Жалақы, іссапар және АҚСШ калькуляторы', subtitle:'Қазақстандағы салықтар мен жарналар — 2025 және 2026 жылдар',
+  tabZp:'Жалақы', tabTrip:'Іссапарлар және жұмыстың жол жүру сипаты', tabGph:'АҚСШ шарты',
+  gModeDirect:'Шарт → қолға', gModeReverse:'Қолға → шарт', gAmtDirect:'АҚСШ шарты бойынша айлық сыйақы, ₸',
+  gCompare:'Салыстыру үшін: жұмыс беруші', gBasicLabel:n=>`${n} АЕК базалық шегерім (орындаушының өтініші бар)`,
+  gPens:'Орындаушы — жасына байланысты зейнеткер',
+  gNote:y=>y===2026
+    ?'Есеп резидент жеке тұлға үшін (ЖК емес). Барлық төлемді тапсырыс беруші (салық агенті) сыйақыдан ұстайды. 2026 жылдан бастап ӘА ЖТС базасын азайтады, ӘА ең төменгі базасы жоқ.'
+    :'Есеп резидент жеке тұлға үшін (ЖК емес). 2025 жылы АҚСШ бойынша ӘА ЖТС базасын азайтпаған және кемінде 1 ЕТЖ-дан есептелген.',
+  gHero1:'Шарт сомасы', gSecWithheld:'Сыйақыдан ұсталады', gSecAgent:'Тапсырыс беруші қосымша төлейді',
+  gSo:'ӘА — әлеуметтік аударымдар, 5%', gSoHint:(y)=>y===2026?'(табыс − МЗЖ) сомасынан, 7 ЕТЖ-дан аспайды':'(табыс − МЗЖ) сомасынан, 1–7 ЕТЖ шегінде',
+  gIpnHint:(t,b,y)=>`салық салынатын база ${t}; шегерім ${b}` + (y===2026?'; МЗЖ, МӘМСҚ жарналары және ӘА базаны азайтады':'; МЗЖ және МӘМСҚ жарналары базаны азайтады'),
+  gAgentNone:'ЖМЗЖ, МӘМСҚ аударымдары, ӘС', gAgentNoneHint:'АҚСШ бойынша төлемдерден есептелмейді',
+  gSecCmp:'АҚСШ немесе еңбек шарты', gCmpNote:'Адамды еңбек шарты бойынша рәсімдесе — сол сома.',
+  gColGph:'АҚСШ шарты', gColEmp:'Еңбек шарты',
+  cAccr:'Есептелді', cWith:'Адамнан ұсталды', cNet:'Қолға', cEr:'Компания қосымша төлейді', cCost:'Компания шығыны',
+  gRulesH:'АҚСШ бойынша маңыздысы',
+  gRules:y=>[
+    'Тапсырыс беруші — салық агенті: МЗЖ, МӘМСҚ жарналарын, ӘА мен ЖТС-ны сыйақыдан ұстап, орындаушы үшін аударады.',
+    y===2026?'2026 жылдан бастап АҚСШ бойынша ӘА ЖТС есептеу кезінде шегерімге кіреді, ӘА ең төменгі базасы алынып тасталды, шегі — 7 ЕТЖ.':'2025 жылы АҚСШ бойынша ӘА кемінде 1 ЕТЖ базадан есептеліп, ЖТС-ны азайтпаған.',
+    'Базалық шегерім орындаушының өтініші бойынша және тек бір салық агентінде қолданылады.',
+    'Әлеуметтік салық, ЖМЗЖ және МӘМСҚ аударымдары АҚСШ бойынша төлемдерден есептелмейді — сондықтан АҚСШ компания үшін арзан, бірақ салық органы мұндай шарттарды еңбек қатынастарының белгілеріне тексереді.',
+    'ЖК және бейрезиденттерге басқа ережелер қолданылады — бұл есеп оларға қатысты емес.'],
+  gWarnHigh:'Салық салынатын табыс 8 500 АЕК-тен асады — бір бөлігіне 15% мөлшерлемемен ЖТС салынады.',
   modeDirect:'Жалақы → қолға', modeReverse:'Қолға → жалақы',
   amountDirect:'Толық айдың лауазымдық жалақысы, ₸', amountReverse:'Қолға алатын сома, ₸',
   year:'Жыл', employer:'Жұмыс беруші', empToo:'ЖШС, жалпы режим', empIp:'ЖК, жалпы режим', empSnr:'Оңайлатылған декларация (АСР)',
   disability:'Мүгедектік', disNone:'Жоқ', dis12perm:'I немесе II топ, мерзімсіз', dis12temp:'I немесе II топ, мерзімді', dis3:'III топ',
   basic:(n,y)=>y===2026?`${n} АЕК базалық шегерім (қызметкердің өтініші бар)`:`${n} АЕК стандартты шегерім (қызметкердің өтініші бар)`,
   pensioner:'Жасына байланысты зейнеткер', student:'Күндізгі оқу нысанының студенті', before1975:'1975 жылғы 1 қаңтарға дейін туған',
-  tripTitle:'Іссапар', tripNote:(a,b)=>`Тәуліктік ақы Қазақстан бойынша күніне 6 АЕК (${a}) және шетелде 8 АЕК (${b}) шегінде салық салынбайды, егер іссапар 40 күннен қысқа болса. Асып кеткен бөлігіне барлық салықтар салынады. Құжатпен расталған жол және тұру шығыстарына салық салынбайды — оларды енгізудің қажеті жоқ.`,
+  split:'Төлемді айдың екі жартысына бөлу (1–15 және 16–соңы)',
+  month:'Ай', months:['Қаңтар','Ақпан','Наурыз','Сәуір','Мамыр','Маусым','Шілде','Тамыз','Қыркүйек','Қазан','Қараша','Желтоқсан'],
+  d1:'1–15 жұмыс күндері', d2:l=>`16–${l} жұмыс күндері`,
+  advType:'Бірінші бөлік (аванс)', advDays:'1–15 жұмыс істелген күндер үшін', advPct:'Жалақының тіркелген пайызы',
+  advPctV:'Жалақының пайызы, %', advTax:'Салықтар мен жарналар ұсталады', taxEach:'Әр бөліктен пропорционал', taxFinal:'Толығымен түпкілікті есеп айырысуда',
+  splitNote:'Жұмыс күндері ҚР өндірістік күнтізбесі бойынша қойылды (бес күндік апта, мерекелер мен ауыстырулар). Қызметкер барлық күнді істемесе — түзетіңіз. Жұмыс берушінің жарналары (ЖМЗЖ, МӘМСҚ аударымдары, ӘА, ӘС) толық ай үшін есептеледі. Тәуліктік ақы екінші бөлікке кіреді.',
+  secSplit:'Айдың жартылары бойынша төлем', secH1:'1–15 күндер', secH2:l=>`16–${l} күндер (түпкілікті есеп)`,
+  h1Hint:(d,n)=>`${n} жұмыс күнінің ${d}-і`, h1HintPct:p=>`жалақының ${p}%`, splitInc:'Есептелді', splitNet:'Төленеді',
+  tripTitle:'Осы айдағы іссапар', tripNote:(a,b)=>`Тәуліктік ақы Қазақстан бойынша күніне 6 АЕК (${a}) және шетелде 8 АЕК (${b}) шегінде салық салынбайды, бір іссапар 40 күннен аспауы керек. Асып кеткен бөлігіне барлық салықтар салынады. Толығырақ — «Іссапарлар» бетінде.`,
   daysRk:'Қазақстан бойынша күндер', daysAbr:'Шетелдегі күндер', rateDay:'Күніне тәуліктік ақы, ₸',
   partTitle:'Толық емес ай', partNote:'Ай ортасында жұмысқа қабылдау не босату, жалақысыз демалыс, толық емес мөлшерлеме үшін. Жалақы жұмыс істелген күндерге пропорционал қайта есептеледі.',
   norm:'Жұмыс күндерінің нормасы', worked:'Жұмыс істелген күндер', hire:'Жұмысқа қабылдау не босату айы (ӘС — нақты табыстан, 14 АЕК минимумсыз)',
@@ -409,19 +779,43 @@ kz:{
   snIp:minus=>minus?'әр қызметкерге 1 АЕК, минус ӘА':'әр қызметкерге 1 АЕК', snSnr:'оңайлатылған режимде төленбейді',
   exempt:'босатылған',
   ipnHint:(t,b,s,c)=>`салық салынатын база ${t}; шегерім ${b}`+(s?`; мүгедектік бойынша ${s}`:'')+(c?`; 90% түзету ${c}`:''),
-  ipnHigh:h=>`оның ішінде ${h} — 15% мөлшерлемемен`,
-  soHint:'(табыс − МЗЖ) сомасынан, 1–7 ЕТЖ шегінде',
+  ipnHigh:h=>`оның ішінде ${h} — 15% мөлшерлемемен`, soHint:'(табыс − МЗЖ) сомасынан, 1–7 ЕТЖ шегінде',
   totalEmp:'Барлығы ұсталды', totalEr:'Барлығы қосымша', cost:'Қызметкердің компанияға құны',
   copy:'Есепті көшіру', copied:'Көшірілді ✓', print:'Басып шығару / PDF',
   warnLow:'Толық айдың жалақысы ЕТЖ-дан (85 000 ₸) төмен — тек толық емес жұмыс уақытында рұқсат етіледі. ӘА ең төменгі 1 ЕТЖ базасынан есептеледі.',
   warnBasicOff:'Шегерімге өтініш болмаса, ЖТС бүкіл сомадан есептеледі.',
-  warn40:'Іссапар 40 күн және одан көп болса, тәуліктік ақы нормалары қолданылмайды — салық салу тәртібін тексеріңіз.',
+  warn40:'Іссапар 40 күн және одан көп болса, 41-күннен бастап тәуліктік ақыға салық салынады — оны «Іссапарлар» бетінде есептеңіз.',
   warnDays:'Жұмыс істелген күндер нормадан көп — есеп толық ай бойынша жасалды.',
+  tSecWorker:'Қызметкер', tSalary:'Қызметкердің айлық жалақысы, ₸', tBasicLabel:n=>`${n} АЕК базалық шегерім (өтініш бар)`,
+  tSecRoad:'Осы айдағы жолдағы күндер', tDays:'Жолдағы күндер', tRate:'Күніне төлем (тәуліктік ақы), ₸',
+  tDocs:'Құжатпен расталған жол, тұру, ЖЖМ, ₸', tNoDocs:'Шығыстар құжатпен расталмаған',
+  tSecTrip:'Іссапар ретінде рәсімделсе', tDir:'Бағыт', tDirRk:'Қазақстан бойынша', tDirAbr:'Шетелге', tOver40:'Оның ішінде іссапардың 40-күнінен кейінгі күндер',
+  tSecRoadType:'Жұмыс жол жүру сипатында болса', tNorm:'Жұмыс беруші актісі бойынша күндік өтемақы нормасы, ₸',
+  tNormNote:'Норманы жұмыс берушінің өзі белгілейді — еңбек немесе ұжымдық шартта не жұмыс берушінің актісінде. Норма болмаса, барлық өтемақыға салық салынады.',
+  tHeroA:'Іссапар: компания шығыны', tHeroB:'Жол жүру сипаты: компания шығыны',
+  tHeroNote:(d,best)=>d===0?'Екі нұсқа бойынша шығын бірдей.':`«${best}» нұсқасының пайдасына ${fmt(Math.abs(d))} айырма.`,
+  vTrip:'Іссапар', vRoad:'Жол жүру сипаты', vBest:'тиімдірек',
+  vPaid:'Қызметкерге төленді', vFree:'Салық салынбайды', vTaxed:'Табыс ретінде салық салынады',
+  vOverLimTrip:l=>`күніне ${l}-ден асатын тәуліктік ақы`, vOverLimRoad:'жұмыс беруші нормасынан тыс', vOver40:'41-күннен бастап тәуліктік ақы', vDocs:'құжатсыз шығыстар',
+  vEmp:'Қызметкерден ұсталады', vEmpHint:'МЗЖ, МӘМСҚ жарналары, ЖТС', vNet:'Қызметкер қолына алады',
+  vEr:'Жұмыс берушінің қосымша салықтары', vErHint:'ЖМЗЖ, МӘМСҚ аударымдары, ӘА, ӘС', vCost:'Компанияның жалпы шығыны',
+  rTripH:'Іссапар', rRoadH:'Жұмыстың жол жүру сипаты',
+  rTrip:l=>[`Іссапарға жіберу туралы бұйрықпен рәсімделеді, қызметкер тұрақты жұмыс орнынан уақытша шығады.`,
+    `Тәуліктік ақыға Қазақстан бойынша күніне 6 АЕК (${l.rk}) және шетелде 8 АЕК (${l.abr}) шегінде салық салынбайды.`,
+    `Норма бір іссапардың 40 күнтізбелік күнінен аспайтын мерзімге қолданылады; 41-күннен бастап тәуліктік ақы — қызметкердің табысы.`,
+    `Құжатпен расталған жол және тұру шығыстарына мерзіміне қарамастан салық салынбайды.`],
+  rRoad:()=>[`Жұмыс тұрақты түрде жолда өтеді (мысалы, жүргізушілер, экспедиторлар): іссапар рәсімделмейді.`,
+    `Лауазымдар тізбесі, өтемақы мөлшері мен тәртібі еңбек немесе ұжымдық шартпен не жұмыс берушінің актісімен белгіленеді.`,
+    `Осы нормалар шегіндегі өтемақы қызметкердің табысы болып табылмайды (ҚР СК 366-бабы), нормадан тыс бөлігіне барлық салықтар салынады.`,
+    `Өтемақы нақты жолда болған күндер үшін төленеді — күндер құжатпен расталады (мысалы, жол парақтарымен).`],
+  tWarnSalary:'Қызметкердің жалақысын көрсетіңіз — салық салынатын бөліктен қосылатын салықтар соған байланысты.',
+  tWarnNoNorm:'Жұмыс беруші нормасы көрсетілмеген — жол жүру сипатында барлық өтемақыға салық салынады.',
+  tWarnDocs:'Құжатсыз шығыстар іссапарда да, жол жүру сипатында да салықты азайтпайды.',
   privacy:'Барлық есептеулер тікелей браузеріңізде жүргізіледі. Енгізілген сомалар ешқайда жіберілмейді және сақталмайды.',
   soon2027:'2027 жылды қаңтарда қосамыз. Қазір қосуға ерте: 2027 жылғы АЕК-ті желтоқсанда бюджет туралы заңмен ғана бекітеді.',
   disclaimer:y=>y===2026
-    ?'Есеп анықтамалық сипатта. 2026 жыл: ҚР Салық кодексі (401–404-баптар, 56-тарау), ҚР Әлеуметтік кодексі, «МӘМС туралы» Заң. АЕК 4 325 ₸, ЕТЖ 85 000 ₸. Ескерілмейді: бейрезиденттер, АҚСШ, зиянды жағдайлар үшін МКЗЖ, вахта және жиынтық есеп. Мөлшерлемелер 2026 жылғы қыркүйекке тексерілген.'
-    :'Есеп анықтамалық сипатта. 2025 жыл: 01.01.2026 дейінгі редакциядағы ҚР Салық кодексі. АЕК 3 932 ₸, ЕТЖ 85 000 ₸, 14 АЕК стандартты шегерім, табыс 25 АЕК-тен аспаса 90% түзету, ӘС 11% минус ӘА, ЖМЗЖ 2,5%, МӘМС шегі 10 ЕТЖ. Ескерілмейді: бейрезиденттер, АҚСШ, МКЗЖ, вахта.'
+    ?'Есеп анықтамалық сипатта. 2026 жыл: ҚР Салық кодексі (366, 401–404-баптар, 56-тарау), ҚР Әлеуметтік кодексі, «МӘМС туралы» Заң. АЕК 4 325 ₸, ЕТЖ 85 000 ₸. Ескерілмейді: бейрезиденттер, зиянды жағдайлар үшін МКЗЖ, вахта және жиынтық есеп. Мөлшерлемелер 2026 жылғы қыркүйекке тексерілген.'
+    :'Есеп анықтамалық сипатта. 2025 жыл: 01.01.2026 дейінгі редакциядағы ҚР Салық кодексі. АЕК 3 932 ₸, ЕТЖ 85 000 ₸, 14 АЕК стандартты шегерім, табыс 25 АЕК-тен аспаса 90% түзету, ӘС 11% минус ӘА, ЖМЗЖ 2,5%, МӘМС шегі 10 ЕТЖ. Ескерілмейді: бейрезиденттер, МКЗЖ, вахта.'
 }};
 
 /* ===== ИНТЕРФЕЙС ===== */
@@ -430,70 +824,137 @@ const sp = n => Math.round(n).toLocaleString('ru-RU').replace(/[  ]/g,' ');
 const fmt = n => sp(n) + ' ₸';
 function pct(p){ return String(+(p*100).toFixed(2)).replace('.', ',') + '%'; }
 const num = id => { const v = ($(id).value || '').replace(/[^\d]/g,''); return v === '' ? null : Number(v); };
-let lang = 'ru', mode = 'direct', last = null;
+let lang = 'ru', mode = 'direct', tab = 'zp', last = null;
 try { const s = localStorage.getItem('zp-lang'); if (s === 'kz' || s === 'ru') lang = s; } catch(e){}
+try { const s = localStorage.getItem('zp-tab'); if (s === 'zp' || s === 'trip' || s === 'gph') tab = s; } catch(e){}
+let gmode = 'direct', gLast = null;
 
 function opts(){
   return { year:Number($('year').value), employer:$('employer').value, disability:$('disability').value,
     basic:$('basic').checked, pensioner:$('pensioner').checked, student:$('student').checked, before1975:$('before1975').checked,
     daysRk:num('daysRk')||0, rateRk:num('rateRk')||0, daysAbr:num('daysAbr')||0, rateAbr:num('rateAbr')||0,
     norm:num('norm')||0, worked:num('worked'), hire:$('hire').checked,
-    ytd:num('ytd')||0, disUsed:num('disUsed')||0 };
+    ytd:num('ytd')||0, disUsed:num('disUsed')||0,
+    split:$('split').checked, d1:num('d1')||0, d2:num('d2')||0, advType:$('advType').value, advPct:num('advPctV')||0, advTax:$('advTax').value };
+}
+function tripOpts(){
+  return { year:Number($('tYear').value), employer:$('tEmployer').value, basic:$('tBasic').checked, salary:num('tSalary')||0,
+    days:num('tDays')||0, rate:num('tRate')||0, docs:num('tDocs')||0, noDocs:$('tNoDocs').checked,
+    dir:$('tDir').value, over40:num('tOver40')||0, norm:num('tNorm')||0 };
+}
+
+function fillDays(){
+  const w = workdays(Number($('year').value), Number($('month').value));
+  $('d1').value = w.a; $('d2').value = w.b;
 }
 
 function applyLang(){
   const t = T[lang];
   document.documentElement.lang = lang === 'kz' ? 'kk' : 'ru';
-  document.title = t.title;
+  document.title = t.title + ' — edubuh';
   document.querySelectorAll('[data-i]').forEach(el => { const v = t[el.dataset.i]; if (typeof v === 'string') el.textContent = v; });
   document.querySelectorAll('[data-lang]').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+  const ms = $('month'), cur = ms.value || String(new Date().getMonth() + 1);
+  ms.innerHTML = t.months.map((m, i) => `<option value="${i+1}">${m}</option>`).join('');
+  ms.value = cur;
+  if (!$('d1').value) fillDays();
   render();
 }
 
-function row(label, val, hint, exempt){
-  const v = exempt ? `<span class="ex">${T[lang].exempt}</span>` : fmt(val);
-  return `<tr><td>${label}${hint?`<span class="hint">${hint}</span>`:''}</td><td class="n">${v}</td></tr>`;
-}
+const row = (label, val, hint, exempt) =>
+  `<tr><td>${label}${hint?`<span class="hint">${hint}</span>`:''}</td><td class="n">${exempt?`<span class="ex">${T[lang].exempt}</span>`:fmt(val)}</td></tr>`;
+const tot = (label, val) => `<tr class="tot"><td>${label}</td><td class="n">${fmt(val)}</td></tr>`;
 
 function render(){
-  const t = T[lang], o = opts(), a = Number(($('amount').value||'').replace(/[^\d]/g,'')) || 0, P = YEARS[o.year];
+  document.querySelectorAll('[data-tab]').forEach(b => b.classList.toggle('on', b.dataset.tab === tab));
+  document.querySelectorAll('[data-pane]').forEach(p => p.hidden = p.dataset.pane !== tab);
+  if (tab === 'zp') renderZp(); else if (tab === 'trip') renderTrip(); else renderGph();
+}
+
+function renderGph(){
+  const t = T[lang], y = Number($('gYear').value), P = YEARS[y];
+  const o = { year:y, basic:$('gBasic').checked, pensioner:$('gPens').checked };
+  document.querySelectorAll('[data-gmode]').forEach(b => b.classList.toggle('on', b.dataset.gmode === gmode));
+  $('gAmountLabel').textContent = gmode === 'direct' ? t.gAmtDirect : t.amountReverse;
+  $('gBasicLabel').textContent = t.gBasicLabel(P.BASIC_DED_MRP);
+  $('gNote').textContent = t.gNote(y);
+  $('disclaimer').textContent = t.disclaimer(y);
+  const a = num('gAmount') || 0;
+  const c = gmode === 'direct' ? calcGph(a, o) : reverseGph(a, o);
+  gLast = c;
+  $('gHero1').textContent = fmt(c.base); $('gHero2').textContent = fmt(c.net);
+  let ipnHint = t.gIpnHint(fmt(c.taxable), fmt(c.basicUsed), y);
+  if (c.high > 0) ipnHint += '; ' + t.ipnHigh(fmt(c.high));
+  $('gTab').innerHTML = row(t.opv, c.opv, '', c.pens) + row(t.vosms, c.vosms, '', c.pens) +
+    row(t.gSo, c.so, t.gSoHint(y), c.pens) + row(t.ipn, c.ipn, ipnHint) + tot(t.totalEmp, c.withheld);
+  $('gAgent').innerHTML = row(t.gAgentNone, 0, t.gAgentNoneHint) + tot(t.cCost, c.cost);
+
+  const e = calc(c.base, { year:y, employer:$('gEmployer').value, basic:o.basic, pensioner:o.pensioner, disability:'none' });
+  const eWith = e.opv + e.vosms + e.ipn;
+  const cheaperGph = c.cost < e.cost, moreNetGph = c.net > e.net;
+  const cellv = (v, strong) => `<td class="n${strong ? ' best' : ''}">${fmt(v)}</td>`;
+  const rw = (label, a1, a2, isTot, best1, best2) => `<tr${isTot?' class="tot"':''}><td>${label}</td>${cellv(a1, best1)}${cellv(a2, best2)}</tr>`;
+  $('gCmp').innerHTML = `<table class="ct"><thead><tr><th></th><th>${t.gColGph}</th><th>${t.gColEmp}</th></tr></thead><tbody>` +
+    rw(t.cAccr, c.base, e.accrued) + rw(t.cWith, c.withheld, eWith) +
+    rw(t.cNet, c.net, e.net, true, moreNetGph, !moreNetGph && e.net > c.net) +
+    rw(t.cEr, 0, e.employerTotal) +
+    rw(t.cCost, c.cost, e.cost, true, cheaperGph, !cheaperGph && e.cost < c.cost) + '</tbody></table>';
+  $('gRules').innerHTML = t.gRules(y).map(x => `<li>${x}</li>`).join('');
+  const w = [];
+  if (c.high > 0) w.push(t.gWarnHigh);
+  if (!o.basic && c.base > 0) w.push(t.warnBasicOff);
+  $('gWarn').hidden = !w.length; $('gWarn').innerHTML = w.map(x=>`<p>${x}</p>`).join('');
+}
+
+function renderZp(){
+  const t = T[lang], o = opts(), a = num('amount') || 0, P = YEARS[o.year];
   document.querySelectorAll('[data-mode]').forEach(b => b.classList.toggle('on', b.dataset.mode === mode));
   $('amountLabel').textContent = mode === 'direct' ? t.amountDirect : t.amountReverse;
   $('basicLabel').textContent = t.basic(P.BASIC_DED_MRP, o.year);
   $('tripNote').textContent = t.tripNote(fmt(P.PERDIEM_RK_MRP*P.MRP), fmt(P.PERDIEM_ABR_MRP*P.MRP));
   $('ytdNote').textContent = t.ytdNote(P.IPN_HIGH_THRESHOLD_MRP ? fmt(P.IPN_HIGH_THRESHOLD_MRP*P.MRP) : '', o.year);
   $('disclaimer').textContent = t.disclaimer(o.year);
+  $('splitBox').hidden = !o.split;
+  $('advPctField').hidden = o.advType !== 'pct';
+  const lastDay = new Date(o.year, Number($('month').value), 0).getDate();
+  $('d2Label').textContent = t.d2(lastDay);
 
   const c = mode === 'direct' ? calc(a, o) : reverse(a, o);
   last = c;
   $('heroGross').textContent = fmt(c.total);
   $('heroNet').textContent = fmt(c.net);
 
-  // бейджи на свёрнутых блоках
   $('bTrip').hidden = !c.perDiem; $('bTrip').textContent = fmt(c.perDiem);
   $('bPart').hidden = !c.partial; $('bPart').textContent = `${c.worked}/${c.norm}`;
   $('bYtd').hidden = !(o.ytd || o.disUsed); $('bYtd').textContent = '✓';
 
-  // начисления — только если есть неполный месяц или суточные
   let acc = '';
   if (c.partial || c.perDiem){
-    acc += row(t.accSalary, c.accrued, c.partial ? t.accSalaryHint(c.worked, c.norm, fmt(c.base)) : '', false);
-    if (c.perDiem) acc += row(t.accPerDiem, c.perDiem, t.accPerDiemHint(fmt(c.perDiemFree), c.perDiemTaxed ? fmt(c.perDiemTaxed) : ''), false);
+    acc += row(t.accSalary, c.accrued, c.partial ? t.accSalaryHint(c.worked, c.norm, fmt(c.base)) : '');
+    if (c.perDiem) acc += row(t.accPerDiem, c.perDiem, t.accPerDiemHint(fmt(c.perDiemFree), c.perDiemTaxed ? fmt(c.perDiemTaxed) : ''));
   }
   $('accrualBlock').hidden = !acc; $('tAcc').innerHTML = acc;
 
   let ipnHint = t.ipnHint(fmt(c.taxable), fmt(c.basicUsed), c.socialUsed ? fmt(c.socialUsed) : '', c.corr ? fmt(c.corr) : '');
   if (c.high > 0) ipnHint += '; ' + t.ipnHigh(fmt(c.high));
-  $('tEmp').innerHTML =
-    row(t.opv, c.opv, '', c.ex.opv) + row(t.vosms, c.vosms, '', c.ex.vosms) + row(t.ipn, c.ipn, ipnHint, false) +
-    `<tr class="tot"><td>${t.totalEmp}</td><td class="n">${fmt(c.opv+c.vosms+c.ipn)}</td></tr>`;
-
+  $('tEmp').innerHTML = row(t.opv, c.opv, '', c.ex.opv) + row(t.vosms, c.vosms, '', c.ex.vosms) + row(t.ipn, c.ipn, ipnHint) +
+    tot(t.totalEmp, c.opv + c.vosms + c.ipn);
   const snHint = o.employer==='too' ? (o.hire ? t.snTooHire : t.snToo)(P.SN_TOO, P.SN_MINUS_SO) : o.employer==='ip' ? t.snIp(P.SN_MINUS_SO) : t.snSnr;
-  $('tEr').innerHTML =
-    row(t.opvr(P.OPVR), c.opvr, '', c.ex.opvr) + row(t.oosms, c.oosms, '', c.ex.oosms) +
-    row(t.so, c.so, t.soHint, c.ex.so) + row(t.sn, c.sn, snHint, false) +
-    `<tr class="tot"><td>${t.totalEr}</td><td class="n">${fmt(c.employerTotal)}</td></tr>` +
-    `<tr class="tot"><td>${t.cost}</td><td class="n">${fmt(c.cost)}</td></tr>`;
+  $('tEr').innerHTML = row(t.opvr(P.OPVR), c.opvr, '', c.ex.opvr) + row(t.oosms, c.oosms, '', c.ex.oosms) +
+    row(t.so, c.so, t.soHint, c.ex.so) + row(t.sn, c.sn, snHint) +
+    tot(t.totalEr, c.employerTotal) + tot(t.cost, c.cost);
+
+  let so = '';
+  if (o.split){
+    const s = splitHalves(c, o);
+    const half = (title, h, hint) => `<h2>${title}</h2><table>` +
+      row(t.splitInc, h.income, hint) + row(t.opv, h.opv, '', c.ex.opv) + row(t.vosms, h.vosms, '', c.ex.vosms) + row(t.ipn, h.ipn) +
+      tot(t.splitNet, h.net) + '</table>';
+    so += `<h2 class="big">${t.secSplit}</h2>`;
+    so += half(t.secH1, s.h1, o.advType === 'pct' ? t.h1HintPct(o.advPct) : t.h1Hint(s.d1, s.d1 + s.d2));
+    so += half(t.secH2(lastDay), s.h2, o.advType === 'pct' ? '' : t.h1Hint(s.d2, s.d1 + s.d2));
+  }
+  $('splitOut').innerHTML = so;
 
   const w = [];
   if (c.base > 0 && c.base < P.MZP) w.push(t.warnLow);
@@ -503,37 +964,96 @@ function render(){
   $('warn').hidden = !w.length; $('warn').innerHTML = w.map(x=>`<p>${x}</p>`).join('');
 }
 
-function copyText(){
-  const t = T[lang], c = last, o = opts(); if (!c) return;
-  const e = (k, v) => c.ex[k] ? t.exempt : fmt(v);
-  const L = [`${t.title} — ${o.year}`];
-  if (c.partial) L.push(`${t.accSalary}: ${fmt(c.accrued)} (${t.accSalaryHint(c.worked, c.norm, fmt(c.base))})`);
-  else L.push(`${t.amountDirect.replace(', ₸','')}: ${fmt(c.accrued)}`);
-  if (c.perDiem) L.push(`${t.accPerDiem}: ${fmt(c.perDiem)} (${t.accPerDiemHint(fmt(c.perDiemFree), c.perDiemTaxed?fmt(c.perDiemTaxed):'')})`);
-  L.push(`${t.opv}: ${e('opv',c.opv)}`, `${t.vosms}: ${e('vosms',c.vosms)}`, `${t.ipn}: ${fmt(c.ipn)}`, `${t.net}: ${fmt(c.net)}`, '',
-    `${t.opvr(c.P.OPVR)}: ${e('opvr',c.opvr)}`, `${t.oosms}: ${e('oosms',c.oosms)}`, `${t.so}: ${e('so',c.so)}`, `${t.sn}: ${fmt(c.sn)}`, `${t.cost}: ${fmt(c.cost)}`);
-  const done = () => { const b=$('copy'); b.textContent=t.copied; setTimeout(()=>b.textContent=t.copy,1500); };
-  if (navigator.clipboard) navigator.clipboard.writeText(L.join('\n')).then(done).catch(()=>{});
+function renderTrip(){
+  const t = T[lang], o = tripOpts(), P = YEARS[o.year];
+  $('tBasicLabel').textContent = t.tBasicLabel(P.BASIC_DED_MRP);
+  $('disclaimer').textContent = t.disclaimer(o.year);
+  const c = calcTrip(o);
+  $('tHeroA').textContent = fmt(c.trip.cost);
+  $('tHeroB').textContent = fmt(c.road.cost);
+  const d = c.trip.cost - c.road.cost;
+  $('tHeroNote').textContent = t.tHeroNote(d, d > 0 ? t.vRoad : t.vTrip);
+
+  const limTxt = fmt(c.lim);
+  const box = (title, v, isBest, partsRows) => `<div class="box${isBest?' best':''}">
+    <h3>${title}${isBest?`<span class="tag">${t.vBest}</span>`:''}</h3><table>
+    ${row(t.vPaid, v.paid)}
+    ${row(t.vFree, v.free)}
+    ${row(t.vTaxed, v.taxed, partsRows)}
+    ${row(t.vEmp, v.empT, t.vEmpHint)}
+    ${tot(t.vNet, v.net)}
+    ${row(t.vEr, v.erT, t.vErHint)}
+    ${tot(t.vCost, v.cost)}
+    </table></div>`;
+  const hintParts = (list) => list.filter(x => x[1] > 0).map(x => `${x[0]}: ${fmt(x[1])}`).join('; ');
+  const tripHint = hintParts([[t.vOverLimTrip(limTxt), c.trip.parts.overLimit],[t.vOver40, c.trip.parts.over40],[t.vDocs, c.trip.parts.docs]]);
+  const roadHint = hintParts([[t.vOverLimRoad, c.road.parts.overLimit],[t.vDocs, c.road.parts.docs]]);
+  $('tCmp').innerHTML = box(t.vTrip, c.trip, d < 0, tripHint) + box(t.vRoad, c.road, d > 0, roadHint);
+  const bA = d < 0, bB = d > 0;
+  const th = (title, best) => `<th class="${best?'best':''}">${title}${best?`<br><span class="tag">${t.vBest}</span>`:''}</th>`;
+  const cell = (v, best, hint, strong) => `<td class="n${best && strong ? ' best' : ''}">${fmt(v)}${hint?`<span class="hint">${hint}</span>`:''}</td>`;
+  const r2 = (label, k, hintL, hA, hB, isTot) => `<tr${isTot?' class="tot"':''}><td>${label}${hintL?`<span class="hint">${hintL}</span>`:''}</td>${cell(c.trip[k], bA, hA, isTot)}${cell(c.road[k], bB, hB, isTot)}</tr>`;
+  $('tCmpWide').innerHTML = `<table class="ct"><thead><tr><th></th>${th(t.vTrip, bA)}${th(t.vRoad, bB)}</tr></thead><tbody>` +
+    r2(t.vPaid, 'paid') + r2(t.vFree, 'free') + r2(t.vTaxed, 'taxed', '', tripHint, roadHint) +
+    r2(t.vEmp, 'empT', t.vEmpHint) + r2(t.vNet, 'net', '', '', '', true) +
+    r2(t.vEr, 'erT', t.vErHint) + r2(t.vCost, 'cost', '', '', '', true) + '</tbody></table>';
+
+  const lims = { rk: fmt(P.PERDIEM_RK_MRP*P.MRP), abr: fmt(P.PERDIEM_ABR_MRP*P.MRP) };
+  $('rTrip').innerHTML = t.rTrip(lims).map(x => `<li>${x}</li>`).join('');
+  $('rRoad').innerHTML = t.rRoad().map(x => `<li>${x}</li>`).join('');
+
+  const w = [];
+  if (!o.salary) w.push(t.tWarnSalary);
+  if (!o.norm && o.rate) w.push(t.tWarnNoNorm);
+  if (o.noDocs && o.docs) w.push(t.tWarnDocs);
+  $('tWarn').hidden = !w.length; $('tWarn').innerHTML = w.map(x=>`<p>${x}</p>`).join('');
+  last = c;
+}
+
+function copyText(which){
+  const t = T[lang], lines = [];
+  const pane = document.querySelector(`[data-pane="${which}"]`);
+  lines.push(`${t.title} — edubuh`);
+  pane.querySelectorAll('.hero .k').forEach((k, i) => lines.push(`${k.textContent}: ${pane.querySelectorAll('.hero .v')[i].textContent}`));
+  pane.querySelectorAll('h2, h3, tr').forEach(el => {
+    if (!el.getClientRects().length) return;
+    if (el.tagName === 'TR'){
+      const tds = el.querySelectorAll('td'); if (tds.length < 2) return;
+      lines.push(`${tds[0].firstChild ? tds[0].firstChild.textContent : tds[0].textContent}: ${tds[1].textContent}`);
+    } else { lines.push(''); lines.push(el.firstChild ? el.firstChild.textContent : el.textContent); }
+  });
+  const btn = pane.querySelector('[data-copy]');
+  const done = () => { btn.textContent = t.copied; setTimeout(() => btn.textContent = t.copy, 1500); };
+  if (navigator.clipboard) navigator.clipboard.writeText(lines.join('\n')).then(done).catch(()=>{});
 }
 
 function groupDigits(el, max){ const n = el.value.replace(/[^\d]/g,'').slice(0, max); el.value = n ? sp(Number(n)) : ''; }
-$('amount').addEventListener('input', e => { groupDigits(e.target, 10); render(); });
-document.querySelectorAll('input.num').forEach(el => el.addEventListener('input', () => {
-  groupDigits(el, ['norm','worked','daysRk','daysAbr'].includes(el.id) ? 3 : 10); render();
+const SHORT = ['norm','worked','daysRk','daysAbr','d1','d2','advPctV','tDays','tOver40'];
+document.querySelectorAll('input.num').forEach(el => el.addEventListener('input', () => { groupDigits(el, SHORT.includes(el.id) ? 3 : 10); render(); }));
+document.querySelectorAll('select, input[type=checkbox]').forEach(el => el.addEventListener('change', render));
+['month','year'].forEach(id => $(id).addEventListener('change', () => { fillDays(); render(); }));
+document.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => {
+  tab = b.dataset.tab; try { localStorage.setItem('zp-tab', tab); } catch(e){}
+  render();
 }));
-['year','employer','disability','basic','pensioner','student','before1975','hire'].forEach(id => $(id).addEventListener('change', render));
 document.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => {
   if (mode === b.dataset.mode) return;
   const c = last; mode = b.dataset.mode;
-  if (c) $('amount').value = sp(mode === 'direct' ? c.base : c.net);
+  if (c && c.base !== undefined) $('amount').value = sp(mode === 'direct' ? c.base : c.net);
+  render();
+}));
+document.querySelectorAll('[data-gmode]').forEach(b => b.addEventListener('click', () => {
+  if (gmode === b.dataset.gmode) return;
+  gmode = b.dataset.gmode;
+  if (gLast) $('gAmount').value = sp(gmode === 'direct' ? gLast.base : gLast.net);
   render();
 }));
 document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => {
   lang = b.dataset.lang; try { localStorage.setItem('zp-lang', lang); } catch(e){}
   applyLang();
 }));
-$('copy').addEventListener('click', copyText);
-$('print').addEventListener('click', () => window.print());
+document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => copyText(b.dataset.copy)));
+document.querySelectorAll('[data-print]').forEach(b => b.addEventListener('click', () => window.print()));
 applyLang();
 </script>
 </body>
